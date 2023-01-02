@@ -1,5 +1,7 @@
 mcr.microsoft.com/playwright:v1.29.1-focal
 
+ARG CACHEBUST=1
+
 RUN apt update
 RUN apt install ffmpeg libsm6 libxext6  -y
 RUN apt install python3-pip -y
