@@ -111,7 +111,7 @@ class Namespace:
 
 #==============================================================#
 
-api = TikTokApi.get_instance()
+api = TikTokApi()
 results = 1000 ##MAX. 2000##
 
 # Since TikTok changed their API you need to use the custom_verifyFp option. 
