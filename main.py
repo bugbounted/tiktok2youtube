@@ -111,7 +111,7 @@ class Namespace:
 
 #==============================================================#
 
-api = TikTokApi()
+api = TikTokApi.get_instance()
 results = 1000 ##MAX. 2000##
 
 # Since TikTok changed their API you need to use the custom_verifyFp option. 
@@ -124,13 +124,13 @@ device_id = api.generate_device_id()
 youtube = get_authenticated_service()
 
 for x in range(100000000000000000000000000000000):
-	trending = api.trending.videos(results)
+	trending = api.by_trending(results)
 	for i in trending:
-		print(i['video.id'])
+		print(i['id'])
 		video_bytes = api.get_video_by_tiktok(i, custom_device_id=device_id)
-		with open(i['video.id'] + ".mp4", "wb") as out:
+		with open(i['id'] + ".mp4", "wb") as out:
     			out.write(video_bytes)
-		file = i['video.id'] + ".mp4"
+		file = i['id'] + ".mp4"
 		title = 'TikTok by @' + i['author']['nickname']
 		args = Namespace(file=file, title=title, description=i['desc'], category='22', keywords='tik,tok,tiktok,pokesi,trending,popular,funny,but,not,funny,at,all', privacyStatus='public')
 		try:
