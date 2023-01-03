@@ -111,7 +111,7 @@ class Namespace:
 
 #==============================================================#
 
-api = TikTokApi()
+api = TikTokApi.get_instance()
 results = 1000 ##MAX. 2000##
 
 # Since TikTok changed their API you need to use the custom_verifyFp option. 
@@ -124,7 +124,7 @@ device_id = api.generate_device_id()
 youtube = get_authenticated_service()
 
 for x in range(100000000000000000000000000000000):
-	trending = api.trending(results)
+	trending = api.by_trending(results)
 	for i in trending:
 		print(i['id'])
 		video_bytes = api.get_video_by_tiktok(i, custom_device_id=device_id)
