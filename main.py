@@ -124,7 +124,7 @@ device_id = api.generate_device_id()
 youtube = get_authenticated_service()
 
 for x in range(100000000000000000000000000000000):
-	trending = api.by_trending(results)
+	trending = api.trending(results)
 	for i in trending:
 		print(i['id'])
 		video_bytes = api.get_video_by_tiktok(i, custom_device_id=device_id)
